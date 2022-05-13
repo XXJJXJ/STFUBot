@@ -1,5 +1,10 @@
 import telegram.ext
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 from profanity_check import predict_prob
+
+# import os
+# PORT = int(os.environ.get('PORT', '8443'))
 
 TOKEN = open("TOKEN", "r").read()
 
@@ -8,7 +13,7 @@ THRESHOLD = 0.65
 def start(update, context):
     update.message.reply_text("Thank you for adding me to this group!\n"
                               "I will my best to keep this group profanity free!\n\n"
-                              "Though I might miss a few sometimes :sad")
+                              "Though I might miss a few sometimes\n:( ")
 
 def handleMessage(update, context):
     msg = [update.message.text]
@@ -30,4 +35,6 @@ updater.dispatcher.add_handler(telegram.ext.CommandHandler("start", start))
 updater.dispatcher.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handleMessage))
 
 updater.start_polling()
+# updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN, webhook_url='https://superthoroughprofanityundobot.herokuapp.com/')
+print("Bot started!")
 updater.idle()
