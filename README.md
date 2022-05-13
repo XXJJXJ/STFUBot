@@ -10,3 +10,5 @@ with trained Machine Learning models to detect profanities better.
 For this bot to function, it has to be granted administrator rights with the ability to delete messages.
 
 Add this bot with telegram handle: @SuperThoroughproFanityUndoBot
+
+** Bot is currently not in use due to unresponsiveness when hosted
